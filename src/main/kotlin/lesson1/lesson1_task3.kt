@@ -7,14 +7,13 @@ fun main() {
     var minute = 7
 
     println(year)
-    println(hour)
-    println(minute)
+    println(hour.toString().padStart(2, '0'))
+    println(minute.toString().padStart(2, '0'))
 
     hour = 10
     minute = 55
 
-    print(hour)
-    print(":")
-    print(minute)
+
+    println("$hour:$minute")
 
 }
