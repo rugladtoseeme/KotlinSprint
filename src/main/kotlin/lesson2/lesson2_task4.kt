@@ -9,8 +9,8 @@ fun main() {
     val resourceIronAmountRaw = 11
     val hundredPercents = 100
 
-    val resourceCrystalAmountBuffed = floor(resourceCrystalAmountRaw * 1.0 / hundredPercents * buffPercents).toInt()
-    val resourceIronAmountBuffed = floor(resourceIronAmountRaw * 1.0 / hundredPercents * buffPercents).toInt()
+    val resourceCrystalAmountBuffed = floor(resourceCrystalAmountRaw.toFloat() / hundredPercents * buffPercents).toInt()
+    val resourceIronAmountBuffed = floor(resourceIronAmountRaw.toFloat() / hundredPercents * buffPercents).toInt()
 
     println("получено $resourceCrystalAmountBuffed бонусных единиц кристаллической руды!")
     println("получено $resourceIronAmountBuffed бонусных единиц железной руды!")
