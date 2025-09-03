@@ -5,10 +5,11 @@ import kotlin.math.pow
 fun main() {
 
     var sumOfDeposit = 70000.0
-    val interestRate = 0.167
+    val interestRatePercent = 16.7
     val yearsOfDeposit = 20
 
-    val coeffPerYear = 1 + interestRate
+    //116.7%
+    val coeffPerYear = (100 + interestRatePercent) / 100
 
     sumOfDeposit *= coeffPerYear.pow(yearsOfDeposit)
 
