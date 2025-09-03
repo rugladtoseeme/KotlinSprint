@@ -1,20 +1,18 @@
 package org.example.lesson1
 
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
+const val numberOfSecondsInAMinute = 60
+const val numberOfMinutesInAnHour = 60
 
 fun main(){
 
     var numberOfSecondsInSpace = 6480
 
-    var numberOfFullMinutesInSpace = numberOfSecondsInSpace / 60
+    val numberOfMinutesInSpace = numberOfSecondsInSpace / numberOfSecondsInAMinute % numberOfMinutesInAnHour
 
-    numberOfSecondsInSpace %= 60
+    val numberOfFullHoursInSpace = numberOfSecondsInSpace / numberOfSecondsInAMinute / numberOfMinutesInAnHour
 
-    val numberOfFullHoursInSpace = numberOfFullMinutesInSpace / 60
+    numberOfSecondsInSpace %= numberOfSecondsInAMinute
 
-    numberOfFullMinutesInSpace %= 60
-
-    println(LocalTime.of(numberOfFullHoursInSpace, numberOfFullMinutesInSpace, numberOfSecondsInSpace).format(DateTimeFormatter.ISO_LOCAL_TIME))
+    println("%02d:%02d:%02d".format(numberOfFullHoursInSpace, numberOfMinutesInSpace, numberOfSecondsInSpace))
 
 }
