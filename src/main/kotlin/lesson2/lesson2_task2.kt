@@ -6,7 +6,7 @@ fun main() {
     val numberOfEmployees = 50
     val traineeSalary = 20000
     val numberOfTrainees = 30
-    val numberOfAllWorkers = numberOfEmployees + numberOfTrainees
+    val numberOfAllWorkers = 80
 
     val salariesForPermanentEmployees = employeeSalary * numberOfEmployees
     val salariesIncludingTrainees = salariesForPermanentEmployees + traineeSalary * numberOfTrainees
