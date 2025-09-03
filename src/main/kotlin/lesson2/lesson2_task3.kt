@@ -6,12 +6,14 @@ fun main() {
     val trainDepartureTimeMinutes = 39
     val travelTimeMinutesTotal = 457
 
-    val travelTimeHours = travelTimeMinutesTotal / 60
-    var travelTimeMinutes = travelTimeMinutesTotal % 60
+    val minutesInAnHour = 60
+
+    val travelTimeHours = travelTimeMinutesTotal / minutesInAnHour
+    var travelTimeMinutes = travelTimeMinutesTotal % minutesInAnHour
 
     val trainArrivalTimeHours =
-        trainDepartureTimeHours + travelTimeHours + (travelTimeMinutes + trainDepartureTimeMinutes) / 60
-    val trainArrivalTimeMinutes = (travelTimeMinutes + trainDepartureTimeMinutes) % 60
+        trainDepartureTimeHours + travelTimeHours + (travelTimeMinutes + trainDepartureTimeMinutes) / minutesInAnHour
+    val trainArrivalTimeMinutes = (travelTimeMinutes + trainDepartureTimeMinutes) % minutesInAnHour
 
     println("$trainArrivalTimeHours:$trainArrivalTimeMinutes")
 }
