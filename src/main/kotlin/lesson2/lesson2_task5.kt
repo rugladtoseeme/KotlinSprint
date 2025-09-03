@@ -8,9 +8,9 @@ fun main() {
     val interestRate = 0.167
     val yearsOfDeposit = 20
 
-    val coeff = 1 + interestRate
+    val coeffPerYear = 1 + interestRate
 
-    sumOfDeposit *= coeff.pow(yearsOfDeposit)
+    sumOfDeposit *= coeffPerYear.pow(yearsOfDeposit)
 
     print(String.format("%.3f", sumOfDeposit))
 }
