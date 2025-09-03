@@ -9,5 +9,5 @@ fun main() {
 
     val numberOfStudents = 4
 
-    println((grade1 + grade2 + grade3 + grade4) * 1.0 / numberOfStudents)
+    println((grade1 + grade2 + grade3 + grade4).toFloat()/ numberOfStudents)
 }
