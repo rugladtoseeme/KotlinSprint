@@ -1,6 +1,6 @@
 package org.example.lesson3
 
-fun main(){
+fun main() {
 
     var chessPositionFrom = "E2"
     var chessPositionTo = "E4"
@@ -10,7 +10,7 @@ fun main(){
 
     chessPositionFrom = "D2"
     chessPositionTo = "D3"
-    chessTurnNumber = 1
+    chessTurnNumber++
 
     println("$chessPositionFrom-$chessPositionTo;$chessTurnNumber")
 }
