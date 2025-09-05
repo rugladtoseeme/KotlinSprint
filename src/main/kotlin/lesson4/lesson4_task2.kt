@@ -12,6 +12,11 @@ fun main() {
     val cargo2Weight = 50
     val cargo2Volume = 100
 
-    println("Груз с весом $cargo1Weight кг и объемом $cargo1Volume л соответствует категории 'Average': ${cargo1Weight > weightBorderLeft && cargo1Weight <= weightBorderRight && cargo1Volume < volumeBorderRight}")
-    println("Груз с весом $cargo2Weight кг и объемом $cargo2Volume л соответствует категории 'Average': ${cargo2Weight > weightBorderLeft && cargo2Weight <= weightBorderRight && cargo2Volume < volumeBorderRight}")
+    val resultCargo1 = cargo1Weight > weightBorderLeft && cargo1Weight <= weightBorderRight &&
+            cargo1Volume < volumeBorderRight
+    println("Груз с весом $cargo1Weight кг и объемом $cargo1Volume л соответствует категории 'Average': $resultCargo1")
+
+    val resultCargo2 = cargo2Weight > weightBorderLeft && cargo2Weight <= weightBorderRight &&
+            cargo2Volume < volumeBorderRight
+    println("Груз с весом $cargo2Weight кг и объемом $cargo2Volume л соответствует категории 'Average': $resultCargo2")
 }
