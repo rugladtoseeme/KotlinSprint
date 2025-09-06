@@ -1,9 +1,15 @@
 package org.example.lesson5
 
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 fun main() {
 
-    val secretNumber1 = 42
-    val secretNumber2 = 10
+    val secretNumber1 = Random.nextInt(42)
+    var secretNumber2 = Random.nextInt(42)
+
+    while (secretNumber2 == secretNumber1)
+        secretNumber2 = Random.nextInt(42)
 
     println("Введите число от 1 до 42!")
     val inputNumber1 = readln().toInt()
@@ -25,6 +31,4 @@ fun main() {
 
     println(strResult)
     println("Правильные ответы: $secretNumber1, $secretNumber2")
-
-
 }
