@@ -5,16 +5,15 @@ fun main() {
     val isFirstDayTrainingArmsAndPress = true
 
     val todaysDayNumber = 5
-    val numberOfVariants = 2
+    val isDayEven = todaysDayNumber % 2 == 0
 
-    val isTodayAnArmsAndPressDay = (todaysDayNumber % numberOfVariants == 1) == isFirstDayTrainingArmsAndPress
 
     println(
         """
-        Упражнения для рук:       $isTodayAnArmsAndPressDay
-        Упражнения для ног:       ${!isTodayAnArmsAndPressDay}
-        Упражнения для спины:  ${!isTodayAnArmsAndPressDay}
-        Упражнения для пресса: $isTodayAnArmsAndPressDay
+        Упражнения для рук:       ${isDayEven != isFirstDayTrainingArmsAndPress}
+        Упражнения для ног:       ${isDayEven == isFirstDayTrainingArmsAndPress}
+        Упражнения для спины:  ${isDayEven == isFirstDayTrainingArmsAndPress}
+        Упражнения для пресса: ${isDayEven != isFirstDayTrainingArmsAndPress}
     """.trimIndent()
     )
 }
