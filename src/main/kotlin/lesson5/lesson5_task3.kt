@@ -8,7 +8,7 @@ fun main() {
     while (secretNumber2 == secretNumber1)
         secretNumber2 = (0..42).random()
 
-    val secretList = listOf(secretNumber1,secretNumber2)
+    val secretList = listOf(secretNumber1, secretNumber2)
     println("Введите число от 0 до 42!")
     val inputNumber1 = readln().toInt()
 
