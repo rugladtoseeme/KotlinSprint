@@ -1,23 +1,22 @@
 package org.example.lesson5
 
-import kotlin.random.Random
-
 fun main() {
 
-    val secretNumber1 = Random.nextInt(43)
-    var secretNumber2 = Random.nextInt(43)
+    val secretNumber1 = (0..42).random()
+    var secretNumber2 = (0..42).random()
 
     while (secretNumber2 == secretNumber1)
-        secretNumber2 = Random.nextInt(43)
+        secretNumber2 = (0..42).random()
 
-    println("Введите число от 1 до 42!")
+    val secretList = listOf(secretNumber1,secretNumber2)
+    println("Введите число от 0 до 42!")
     val inputNumber1 = readln().toInt()
 
-    println("Введите число от 1 до 42!")
+    println("Введите число от 0 до 42!")
     val inputNumber2 = readln().toInt()
 
-    val firstRight = if (inputNumber1 == secretNumber1 || inputNumber1 == secretNumber2) 1 else 0
-    val secondRight = if (inputNumber2 == secretNumber1 || inputNumber2 == secretNumber2) 1 else 0
+    val firstRight = if (secretList.contains(inputNumber1)) 1 else 0
+    val secondRight = if (secretList.contains(inputNumber2)) 1 else 0
     val result = firstRight + secondRight
 
     println(
