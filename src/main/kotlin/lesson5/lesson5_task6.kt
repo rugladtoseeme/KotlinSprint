@@ -2,33 +2,32 @@ package org.example.lesson5
 
 import kotlin.math.pow
 
+const val IMT_LOW_WEIGHT_MAX = 18.5
+const val IMT_NORMAL_WEIGHT_MAX = 25.0
+const val IMT_OBESITY_WEIGHT_MIN = 30.0
+
+fun enterNumbers(message: String): Float {
+    println(message)
+    return readln().toFloat()
+}
+
 fun main() {
 
-    println("Введите ваш рост в сантиметрах")
-    val height: Float = readln().toFloat()
-    println("Введите ваш вес в килограммах")
-    val weight: Float = readln().toFloat()
+    val height: Float = enterNumbers("Введите ваш рост в сантиметрах")
+    val weight: Float = enterNumbers("Введите ваш вес в килограммах")
 
     val smInMeter = 100
     val heightMeters = height / smInMeter
 
-    val IMT = weight / heightMeters.pow(2)
+    val imt = weight / heightMeters.pow(2)
 
-    var weightCategory = ""
-    if (IMT < 18.5) {
-        println("ИМТ меньше 18.5: Недостаточная масса тела.")
-        weightCategory = "Недостаточная масса тела"
-    } else if (IMT in 18.5..25.0) {
-        println("ИМТ между 18.5 и 25: Нормальная масса тела.")
-        weightCategory = "Нормальная масса тела"
-    } else if (IMT in 25.0..30.0) {
-        println("ИМТ между 25.0 и 30: Избыточная масса тела.")
-        weightCategory = "Избыточная масса тела"
-    } else {
-        println("ИМТ более 30: Ожирение.")
-        weightCategory = "Ожирение"
+    var weightCategory = when {
+        imt < IMT_LOW_WEIGHT_MAX -> "Недостаточная масса тела"
+        imt in IMT_LOW_WEIGHT_MAX..IMT_NORMAL_WEIGHT_MAX -> "Нормальная масса тела"
+        imt in IMT_NORMAL_WEIGHT_MAX..IMT_OBESITY_WEIGHT_MIN -> "Избыточная масса тела"
+        else -> "Ожирение"
     }
 
-    println("Ваш ИМТ составляет ${String.format("%.2f", IMT)}. Диагноз: $weightCategory.")
+    println("Ваш ИМТ составляет ${String.format("%.2f", imt)}. Диагноз: $weightCategory.")
 
 }
