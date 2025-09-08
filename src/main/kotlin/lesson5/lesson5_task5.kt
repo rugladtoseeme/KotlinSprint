@@ -1,7 +1,7 @@
 package org.example.lesson5
 
 fun generateSecretNumbers(): MutableSet<Int> {
-    var secretSet: MutableSet<Int> = mutableSetOf()
+    val secretSet: MutableSet<Int> = mutableSetOf()
     do {
         secretSet.add((0..42).random())
     } while (secretSet.size < 3)
@@ -10,12 +10,15 @@ fun generateSecretNumbers(): MutableSet<Int> {
 
 fun enterNumbersSet(): MutableSet<Int> {
 
-    var inputSet: MutableSet<Int> = mutableSetOf()
+    val inputSet: MutableSet<Int> = mutableSetOf()
     do {
         println("Введите число от 0 до 42!")
         val enteredNumber = readln().toInt()
-        if (inputSet.contains(enteredNumber)) println("Необходимо вводить различные числа! Попробуйте еще раз")
-        if (!(enteredNumber in 0..42)) {
+        if (inputSet.contains(enteredNumber)) {
+            println("Необходимо вводить различные числа! Попробуйте еще раз")
+            continue
+        }
+        if (enteredNumber !in 0..42) {
             println("Число не входит в диапазон [0, 42]. Попробуйте еще раз")
             continue
         }
@@ -27,13 +30,11 @@ fun enterNumbersSet(): MutableSet<Int> {
 fun main() {
 
     val secretNumbersSet = generateSecretNumbers()
-
     val inputNumbersSet = enterNumbersSet()
-
-    val rightAnswersListSize = inputNumbersSet.intersect(secretNumbersSet).size
+    val matchesCount = inputNumbersSet.intersect(secretNumbersSet).size
 
     println(
-        when (rightAnswersListSize) {
+        when (matchesCount) {
             0 -> "Неудача! Вы не угадали ни одного числа."
             1 -> "Вы угадали одно число и выиграли утешительный приз!"
             2 -> "Поздравляем! Вы угадали два числа и выиграли крупный приз!"
