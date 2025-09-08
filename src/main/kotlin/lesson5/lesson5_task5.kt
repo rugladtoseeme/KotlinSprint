@@ -1,47 +1,45 @@
 package org.example.lesson5
 
-fun generateNumber(): Int {
-    return (0..42).random()
+fun generateSecretNumbers(): MutableSet<Int> {
+    var secretSet: MutableSet<Int> = mutableSetOf()
+    do {
+        secretSet.add((0..42).random())
+    } while (secretSet.size < 3)
+    return secretSet
 }
 
-fun enterNumber(): Int {
-    println("Введите число от 0 до 42!")
-    return readln().toInt()
+fun enterNumbersSet(): MutableSet<Int> {
+
+    var inputSet: MutableSet<Int> = mutableSetOf()
+    do {
+        println("Введите число от 0 до 42!")
+        val enteredNumber = readln().toInt()
+        if (inputSet.contains(enteredNumber)) println("Необходимо вводить различные числа! Попробуйте еще раз")
+        if (!(enteredNumber in 0..42)) {
+            println("Число не входит в диапазон [0, 42]. Попробуйте еще раз")
+            continue
+        }
+        inputSet.add(enteredNumber)
+    } while (inputSet.size < 3)
+    return inputSet
 }
 
 fun main() {
 
-    val secretNumber1 = generateNumber()
-    var secretNumber2 = generateNumber()
-    while (secretNumber2 == secretNumber1)
-        secretNumber2 = generateNumber()
+    val secretNumbersSet = generateSecretNumbers()
 
-    var secretNumber3 = generateNumber()
+    val inputNumbersSet = enterNumbersSet()
 
-    while (secretNumber3 == secretNumber1 || secretNumber3 == secretNumber2)
-        secretNumber3 = generateNumber()
-
-    val secretList = listOf(secretNumber1, secretNumber2, secretNumber3)
-
-    val inputNumber1 = enterNumber()
-
-    val inputNumber2 = enterNumber()
-
-    val inputNumber3 = enterNumber()
-
-    val inputList = listOf(inputNumber1, inputNumber2, inputNumber3)
-
-    val rightAnswersListSize = inputList.intersect(secretList).size
+    val rightAnswersListSize = inputNumbersSet.intersect(secretNumbersSet).size
 
     println(
         when (rightAnswersListSize) {
             0 -> "Неудача! Вы не угадали ни одного числа."
             1 -> "Вы угадали одно число и выиграли утешительный приз!"
             2 -> "Поздравляем! Вы угадали два числа и выиграли крупный приз!"
-            3 -> "Поздравляем! Вы угадали все числа и выиграли джекпот!"
             else -> "Поздравляем! Вы угадали все числа и выиграли джекпот!"
         }
     )
 
-    println("Правильные ответы: $secretNumber1, $secretNumber2, $secretNumber3")
+    print(secretNumbersSet.joinToString(", ", "Правильные ответы: ", "."))
 }
