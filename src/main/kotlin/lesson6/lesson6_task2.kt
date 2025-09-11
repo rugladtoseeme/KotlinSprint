@@ -1,5 +1,7 @@
 package org.example.lesson6
 
+const val MILLISECONDS_IN_SECOND = 1000L
+
 fun main() {
 
     println("Введите количество секунд")
@@ -8,7 +10,7 @@ fun main() {
 
     while(counter > 0) {
         counter--
-        Thread.sleep(1000)
+        Thread.sleep(MILLISECONDS_IN_SECOND)
     }
 
     println("Прошло $seconds секунд")
