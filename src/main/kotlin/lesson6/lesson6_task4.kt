@@ -1,7 +1,5 @@
 package org.example.lesson6
 
-import kotlin.random.Random
-
 const val MAX_NUMBER = 9
 const val MIN_NUMBER = 1
 const val MAX_TRIES = 5
@@ -13,7 +11,7 @@ fun enterNumber(): Int {
 
 fun main() {
 
-    val secretNumber = Random.nextInt(MIN_NUMBER, MAX_NUMBER)
+    val secretNumber = (MIN_NUMBER.. MAX_NUMBER).random()
     var counter = 0
 
     while (counter < MAX_TRIES) {
