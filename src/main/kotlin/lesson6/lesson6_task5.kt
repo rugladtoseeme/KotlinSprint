@@ -1,13 +1,11 @@
 package org.example.lesson6
 
-import kotlin.random.Random
-
 const val MAX_NUMBER = 9
 const val MAX_TRIES = 3
 
 fun generateTest(): Int {
-    val number1 = Random.nextInt(1, MAX_NUMBER)
-    val number2 = Random.nextInt(1, MAX_NUMBER)
+    val number1 = (1..MAX_NUMBER).random()
+    val number2 = (1..MAX_NUMBER).random()
     println("Решите пример: $number1 + $number2 = ?")
     return number1 + number2
 }
