@@ -10,18 +10,15 @@ fun main() {
     println("Пользователь успешно зарегистрирован!\n")
 
     println("Вход.")
-    println("Введите ваш логин:")
-    var enteredLogin = readln()
-    println("Введите ваш пароль:")
-    var enteredPassword = readln()
-
-    while (enteredLogin != login || enteredPassword != password) {
-        println("Неверный логин или пароль! Попробуйте снова:")
+    do {
         println("Введите ваш логин:")
-        enteredLogin = readln()
+        val enteredLogin = readln()
         println("Введите ваш пароль:")
-        enteredPassword = readln()
-    }
+        val enteredPassword = readln()
+        val isLoginOrPwdWrong = enteredLogin != login || enteredPassword != password
+        if (isLoginOrPwdWrong)
+            println("Неверный логин или пароль! Попробуйте ввести еще раз.")
+    } while (isLoginOrPwdWrong)
 
     println("Вход успешен. Добро пожаловать в приложение!")
 
