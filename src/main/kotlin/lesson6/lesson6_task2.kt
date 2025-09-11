@@ -8,7 +8,7 @@ fun main() {
     val seconds = readln().toInt()
     var counter = seconds
 
-    while(counter > 0) {
+    while (counter > 0) {
         counter--
         Thread.sleep(MILLISECONDS_IN_SECOND)
     }
