@@ -11,7 +11,7 @@ fun enterNumber(): Int {
 
 fun main() {
 
-    val secretNumber = (MIN_NUMBER.. MAX_NUMBER).random()
+    val secretNumber = (MIN_NUMBER..MAX_NUMBER).random()
     var counter = 0
 
     while (counter < MAX_TRIES) {
