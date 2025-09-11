@@ -6,12 +6,6 @@ fun main() {
 
     println("Введите количество секунд")
     val seconds = readln().toInt()
-    var counter = seconds
-
-    while (counter > 0) {
-        counter--
-        Thread.sleep(MILLISECONDS_IN_SECOND)
-    }
-
+    Thread.sleep(MILLISECONDS_IN_SECOND * seconds)
     println("Прошло $seconds секунд")
 }
