@@ -1,6 +1,6 @@
 package org.example.lesson6
 
-const val MILLISECONDS_IN_SECOND = 1000L
+private const val MILLISECONDS_IN_SECOND = 1000L
 
 fun main() {
 
