@@ -1,7 +1,7 @@
 package org.example.lesson6
 
-const val MAX_NUMBER = 9
-const val MAX_TRIES = 3
+private const val MAX_NUMBER = 9
+private const val MAX_TRIES = 3
 
 fun generateTest(): Int {
     val number1 = (1..MAX_NUMBER).random()

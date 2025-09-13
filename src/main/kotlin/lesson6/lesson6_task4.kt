@@ -1,8 +1,8 @@
 package org.example.lesson6
 
-const val MAX_NUMBER = 9
+private const val MAX_NUMBER = 9
 const val MIN_NUMBER = 1
-const val MAX_TRIES = 5
+private const val MAX_TRIES = 5
 
 fun enterNumber(): Int {
     println("Введи число от 1 до 9")
