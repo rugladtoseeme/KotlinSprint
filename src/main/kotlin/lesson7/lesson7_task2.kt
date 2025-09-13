@@ -11,10 +11,9 @@ fun main() {
         println("Введите код")
         val codeInput = readln().toInt()
         val isCodeNotCorrect = codeInput != codeGenerated
-        if (isCodeNotCorrect){
+        if (isCodeNotCorrect) {
             println("Неверный код! Попробуйте снова, мы вышлем вам код повторно.")
-        }
-        else{
+        } else {
             println("Код верный. Добро подаловать в приложение!")
             return
         }
