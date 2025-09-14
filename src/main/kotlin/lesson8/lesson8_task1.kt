@@ -7,5 +7,5 @@ fun main() {
     for (i in viewsForOneWeekDaily) {
         totalViewsForAWeek += i
     }
-    println("Всего за неделю было $totalViewsForAWeek просмотром рекламы.")
+    println("Всего за неделю было $totalViewsForAWeek просмотров рекламы.")
 }
