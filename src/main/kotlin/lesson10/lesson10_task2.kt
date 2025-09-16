@@ -1,8 +1,6 @@
 package org.example.lesson10
 
-fun isStringLengthValid(str: String): Boolean {
-    return str.length >= 4
-}
+fun isStringLengthValid(str: String): Boolean = str.length >= 4
 
 fun main() {
 
