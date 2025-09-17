@@ -9,5 +9,5 @@ fun main() {
         ingredientsList.add(readln())
     }
 
-    println(ingredientsList.distinct().sorted().joinToString(", ").replaceFirstChar { it.uppercase() })
+    println(ingredientsList.distinct().sorted().joinToString(", ", postfix = ".").replaceFirstChar { it.uppercase() })
 }
