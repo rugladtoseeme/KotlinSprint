@@ -4,7 +4,7 @@ fun throwBones(): Int {
     return (1..6).random()
 }
 
-fun playRound(): Boolean {
+fun playRound(): Int {
     val humanPoints = throwBones()
     println("Бросок человека: выпало $humanPoints очков.")
     val computerPoints = throwBones()
@@ -13,17 +13,17 @@ fun playRound(): Boolean {
     when {
         humanPoints < computerPoints -> {
             println("Победила машина!")
-            return false
+            return 0
         }
 
         humanPoints > computerPoints -> {
             println("Победило человечество!")
-            return true
+            return 1
         }
 
         else -> {
             println("Победила дружба!")
-            return false
+            return 0
         }
     }
 }
@@ -35,7 +35,7 @@ fun main() {
     var roundsTotal = 0
 
     do {
-        wins += if (playRound()) 1 else 0
+        wins += playRound()
         roundsTotal++
         println("Хотите продолжать игру? (да/нет)")
         val continueGameStr = readln()
