@@ -10,10 +10,10 @@ class Room(
     }
 
     fun changeStatus(memberName: String, newStatus: Status) {
-        val memberByName = members.filter {
+        val memberByName = members.find {
             it.name == memberName
-        }.first()
-        memberByName.status = newStatus
+        }
+        memberByName?.status = newStatus
     }
 }
 
