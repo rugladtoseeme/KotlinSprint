@@ -1,7 +1,5 @@
 package org.example.lesson11
 
-import kotlin.text.replace
-
 class User2(
     val id: Int,
     val username: String,
@@ -11,7 +9,7 @@ class User2(
 ) {
     fun printUserInfo() = println(
         """User2: id = $id, username = $username, password = $password, 
-        email = $email, bio = $bio""".replace((Regex("\\s+")), " ")
+        email = $email, bio = ${if (!bio.isNullOrBlank()) bio else "нет данных"}""".replace((Regex("\\s+")), " ")
     )
 
     fun setBioFromConsole() {
