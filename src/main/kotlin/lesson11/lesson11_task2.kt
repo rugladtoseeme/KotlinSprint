@@ -9,7 +9,7 @@ class User2(
 ) {
     fun printUserInfo() = println(
         """User2: id = $id, username = $username, password = $password, 
-        email = $email, bio = ${if (!bio.isNullOrBlank()) bio else "нет данных"}""".replace((Regex("\\s+")), " ")
+        email = $email, bio = ${bio ?: "нет данных"}""".replace((Regex("\\s+")), " ")
     )
 
     fun setBioFromConsole() {
@@ -24,7 +24,9 @@ class User2(
             println("Введите новый пароль")
             password = readln()
             println("Успешно сменен пароль!")
-        } else println("Неверный ввод пароля, доступ запрещен.")
+        } else {
+            println("Неверный ввод пароля, доступ запрещен.")
+        }
     }
 }
 
