@@ -36,5 +36,3 @@ fun main() {
     user.changePassword()
     user.printUserInfo()
 }
-
-
