@@ -14,8 +14,8 @@ class Weather2(dayTemperatureCalvin: Int, nightTemperatureCalvin: Int, isPrecipi
 }
 
 fun main() {
-    var weatherToday = Weather2(dayTemperatureCalvin = 22, nightTemperatureCalvin = 15, isPrecipitation = false)
-    var weatherYesterday = Weather2(dayTemperatureCalvin = 25, nightTemperatureCalvin = 18, isPrecipitation = true)
+    var weatherToday = Weather2(dayTemperatureCalvin = 300, nightTemperatureCalvin = 288, isPrecipitation = false)
+    var weatherYesterday = Weather2(dayTemperatureCalvin = 299, nightTemperatureCalvin = 1285, isPrecipitation = true)
     weatherToday.printWeather()
     weatherYesterday.printWeather()
 }
