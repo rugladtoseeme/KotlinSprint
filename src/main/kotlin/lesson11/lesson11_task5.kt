@@ -1,9 +1,8 @@
 package org.example.lesson11
 
-class Forum() {
-
-    var members: MutableList<Member> = mutableListOf()
-    var messages: MutableList<Message> = mutableListOf()
+class Forum {
+    private val members: MutableList<Member> = mutableListOf()
+    private val messages: MutableList<Message> = mutableListOf()
 
     fun createNewUser(username: String): Member {
         val lastElem = members.lastOrNull()
@@ -16,9 +15,10 @@ class Forum() {
         return newMember
     }
 
-    fun createNewMessage(message: String, authorId: Int): Message {
-        if (messages.find { it.authorId == authorId } == null) {
+    fun createNewMessage(message: String, authorId: Int): Message? {
+        if (members.find { it.userId == authorId } == null) {
             println("на форуме нет такого зарегистрированного пользователя")
+            return null
         }
         val newMessage = Message.Builder()
             .authorId(authorId)
@@ -59,7 +59,6 @@ class Member(
     }
 
 }
-
 
 class Message(
     messageBuilder: Builder,
