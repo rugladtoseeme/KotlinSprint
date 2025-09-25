@@ -2,16 +2,13 @@ package org.example.lesson12
 
 const val CALVIN_CELSIUS_RESIDUAL = 273
 
-class Weather3 {
+class Weather3(dayTemperatureCalvin: Int, nightTemperatureCalvin: Int, isPrecipitation: Boolean) {
 
-    val dayTemperature: Int
-    val nightTemperature: Int
-    val isPrecipitation: Boolean
+    val dayTemperature: Int = dayTemperatureCalvin - CALVIN_CELSIUS_RESIDUAL
+    val nightTemperature: Int = nightTemperatureCalvin - CALVIN_CELSIUS_RESIDUAL
+    val isPrecipitation: Boolean = isPrecipitation
 
-    constructor(dayTemperatureCalvin: Int, nightTemperatureCalvin: Int, isPrecipitation: Boolean) {
-        this.dayTemperature = dayTemperatureCalvin - CALVIN_CELSIUS_RESIDUAL
-        this.nightTemperature = nightTemperatureCalvin - CALVIN_CELSIUS_RESIDUAL
-        this.isPrecipitation = isPrecipitation
+    init {
         println("Погода днем - $dayTemperature градусов, ночью - $nightTemperature градусов, осадки - $isPrecipitation")
     }
 }
