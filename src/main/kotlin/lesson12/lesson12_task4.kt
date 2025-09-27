@@ -1,6 +1,6 @@
 package org.example.lesson12
 
-const val CALVIN_CELSIUS_RESIDUAL = 273
+private const val CALVIN_CELSIUS_RESIDUAL = 273
 
 class Weather3(dayTemperatureCalvin: Int, nightTemperatureCalvin: Int, isPrecipitation: Boolean) {
 
