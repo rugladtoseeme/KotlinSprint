@@ -1,13 +1,13 @@
 package org.example.lesson10
 
-fun throwBones(): Int {
+fun throwBones1(): Int {
     return (1..6).random()
 }
 
 fun playRound(): Int {
-    val humanPoints = throwBones()
+    val humanPoints = throwBones1()
     println("Бросок человека: выпало $humanPoints очков.")
-    val computerPoints = throwBones()
+    val computerPoints = throwBones1()
     println("Бросок компьютера: выпало $computerPoints очков.")
 
     when {
