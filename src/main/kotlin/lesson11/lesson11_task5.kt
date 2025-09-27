@@ -1,13 +1,13 @@
 package org.example.lesson11
 
 class Forum {
-    private val members: MutableList<Member> = mutableListOf()
+    private val members: MutableList<Member1> = mutableListOf()
     private val messages: MutableList<Message> = mutableListOf()
 
-    fun createNewUser(_username: String): Member {
+    fun createNewUser(_username: String): Member1 {
         val lastElem = members.lastOrNull()
         val newId = if (lastElem == null) 1 else lastElem.userId + 1
-        val newMember = Member(userId = newId, username = _username)
+        val newMember = Member1(userId = newId, username = _username)
         members.add(newMember)
         return newMember
     }
@@ -29,7 +29,7 @@ class Forum {
     }
 }
 
-class Member(
+class Member1(
     val userId: Int,
     val username: String,
 )
