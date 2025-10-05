@@ -17,7 +17,6 @@ class Administrator(username: String) : AbstractUser(username) {
     }
 }
 
-
 fun main() {
 
     val admin = Administrator("anna")
