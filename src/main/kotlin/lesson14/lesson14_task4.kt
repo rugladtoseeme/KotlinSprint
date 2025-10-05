@@ -4,8 +4,8 @@ open class CelestialBody(
     val name: String,
     val hasAtmosphere: Boolean,
     val isLandable: Boolean,
-){
-    fun printName(){
+) {
+    fun printName() {
         println(name)
     }
 }
@@ -30,10 +30,10 @@ class Moon(
 fun main() {
     val mars = Planet(name = "Mars", hasAtmosphere = true, isLandable = true)
     mars.addMoon(Moon(name = "Phobos", hasAtmosphere = false, isLandable = true))
-    mars.addMoon(Moon(name = "Deimos", hasAtmosphere = false, isLandable = true))
+    mars.addMoon(Moon(name = "Deimos", hasAtmosphere = false, isLandable = false))
 
     mars.printName()
-    for (moon in mars.moons){
+    for (moon in mars.moons) {
         moon.printName()
     }
 }
