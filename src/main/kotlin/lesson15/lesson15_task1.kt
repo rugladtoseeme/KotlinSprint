@@ -5,20 +5,24 @@ abstract class Animal {
 }
 
 interface Flyable {
-    fun fly() {
-        print(" Я лечу!")
-    }
+    fun fly()
 }
 
 interface Swimable {
-    fun swim() {
-        print(" Я плыву!")
-    }
+    fun swim()
 }
 
 class Duck() : Animal(), Swimable, Flyable {
     override fun myName() {
         print("\nПривет, я утка!")
+    }
+
+    override fun swim() {
+        print(" Я плыву!")
+    }
+
+    override fun fly() {
+        print(" Я лечу!")
     }
 }
 
@@ -26,11 +30,23 @@ class Seagull() : Animal(), Swimable, Flyable {
     override fun myName() {
         print("\nПривет, я чайка!")
     }
+
+    override fun swim() {
+        print(" Я плыву!")
+    }
+
+    override fun fly() {
+        print(" Я лечу!")
+    }
 }
 
 class Carp() : Animal(), Swimable {
     override fun myName() {
         print("\nПривет, я карась!")
+    }
+
+    override fun swim() {
+        print(" Я плыву!")
     }
 }
 
