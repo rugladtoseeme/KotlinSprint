@@ -11,6 +11,7 @@ abstract class AbstractUser(val username: String) {
 }
 
 class User(username: String) : AbstractUser(username)
+
 class Administrator(username: String) : AbstractUser(username) {
     fun deleteMessage() {
         println("администратор $username удаляет сообщение")
@@ -18,7 +19,6 @@ class Administrator(username: String) : AbstractUser(username) {
 }
 
 fun main() {
-
     val admin = Administrator("anna")
     val user = User("elena")
     admin.writeMessage()
