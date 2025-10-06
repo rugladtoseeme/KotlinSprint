@@ -7,15 +7,14 @@ abstract class Product(val name: String, val amount: Int) {
 }
 
 interface Searchable {
-    fun findComponents(components: List<InstrumentComponent>): List<InstrumentComponent>
+    fun findComponents(components: List<InstrumentComponent>, instrumentName: String): List<InstrumentComponent>{
+        println("Выполняется поиск.")
+        return components.filter { it.instrument.name == instrumentName }
+    }
 }
 
 class Instrument(name: String, amount: Int) : Product(name, amount), Searchable {
 
-    override fun findComponents(components: List<InstrumentComponent>): List<InstrumentComponent> {
-        println("Выполняется поиск.")
-        return components.filter { it.instrument.name == name }
-    }
 }
 
 class InstrumentComponent(name: String, amount: Int, val instrument: Instrument) : Product(name, amount)
@@ -33,8 +32,8 @@ fun main() {
         InstrumentComponent("смычок", 15, violin)
     )
 
-    val violinComponents = violin.findComponents(components)
-    val guitarComponents = guitar.findComponents(components)
+    val violinComponents = violin.findComponents(components, violin.name)
+    val guitarComponents = guitar.findComponents(components, guitar.name)
 
     println("Товары для гитары: ${guitarComponents.joinToString("; ", postfix = ".")}")
     println("Товары для скрипки: ${violinComponents.joinToString("; ", postfix = ".")}")
