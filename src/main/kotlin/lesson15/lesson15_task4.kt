@@ -7,7 +7,7 @@ abstract class Product(val name: String, val amount: Int) {
 }
 
 interface Searchable {
-    fun findComponents(components: List<InstrumentComponent>, instrumentName: String): List<InstrumentComponent>{
+    fun findComponents(components: List<InstrumentComponent>, instrumentName: String): List<InstrumentComponent> {
         println("Выполняется поиск.")
         return components.filter { it.instrument.name == instrumentName }
     }
