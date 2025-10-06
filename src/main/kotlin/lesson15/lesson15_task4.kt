@@ -13,9 +13,7 @@ interface Searchable {
     }
 }
 
-class Instrument(name: String, amount: Int) : Product(name, amount), Searchable {
-
-}
+class Instrument(name: String, amount: Int) : Product(name, amount), Searchable
 
 class InstrumentComponent(name: String, amount: Int, val instrument: Instrument) : Product(name, amount)
 
