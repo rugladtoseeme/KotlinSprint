@@ -29,7 +29,7 @@ class Moon(
 
 fun main() {
     val mars = Planet(name = "Mars", hasAtmosphere = true, isLandable = true)
-    mars.addMoon(Moon(name = "Phobos", hasAtmosphere = false, isLandable = true))
+    mars.addMoon(Moon(name = "Phobos", hasAtmosphere = false, isLandable = false))
     mars.addMoon(Moon(name = "Deimos", hasAtmosphere = false, isLandable = false))
 
     mars.printName()
