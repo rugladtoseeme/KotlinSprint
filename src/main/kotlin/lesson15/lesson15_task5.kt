@@ -82,22 +82,22 @@ fun main() {
     var numberOfPassengers = 6
     var weightOfCargo = 2
 
-    while(cargoCar.currentCargo < cargoCar.maxCargo){
+    while (cargoCar.currentCargo < cargoCar.maxCargo) {
         cargoCar.loadCargo()
         weightOfCargo--
     }
 
-    while(cargoCar.currentPassengers < cargoCar.maxPassengers){
+    while (cargoCar.currentPassengers < cargoCar.maxPassengers) {
         cargoCar.loadPassenger()
         numberOfPassengers--
     }
 
-    while(passengerCar1.currentPassengers < passengerCar1.maxPassengers){
+    while (passengerCar1.currentPassengers < passengerCar1.maxPassengers) {
         passengerCar1.loadPassenger()
         numberOfPassengers--
     }
 
-    while(passengerCar2.currentPassengers < passengerCar2.maxPassengers && numberOfPassengers > 0){
+    while (passengerCar2.currentPassengers < passengerCar2.maxPassengers && numberOfPassengers > 0) {
         passengerCar2.loadPassenger()
         numberOfPassengers--
     }
