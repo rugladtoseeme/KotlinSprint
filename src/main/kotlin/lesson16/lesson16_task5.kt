@@ -16,6 +16,7 @@ class Player(val name: String, private var hp: Int, var damage: Int) {
     }
 
     fun heal(hp: Int) {
+
         if (!isAlive) println("Игрок $name не может лечиться, он умер.")
         else {
             this.hp += hp
@@ -24,6 +25,7 @@ class Player(val name: String, private var hp: Int, var damage: Int) {
     }
 
     private fun die() {
+
         isAlive = false
         hp = 0
         damage = 0
