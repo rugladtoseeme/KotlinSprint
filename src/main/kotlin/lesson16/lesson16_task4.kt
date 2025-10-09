@@ -1,6 +1,7 @@
 package org.example.lesson16
 
 enum class Status {
+
     PLACED,
     IN_PROCESS,
     READY,
@@ -19,6 +20,7 @@ class Order(private val id: Int) {
 }
 
 fun main() {
+
     val order = Order(111)
     order.managerChangeStatus(Status.CANCELED)
 }
