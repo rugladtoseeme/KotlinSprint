@@ -11,13 +11,13 @@ interface Movable {
 }
 
 interface CargoMovable {
-    fun loadCargo()
+    fun loadCargo(weight: Int)
     fun unloadCargo()
 }
 
 interface PassengerMovable {
-    fun loadPassenger()
-    fun unloadPassengers()
+    fun loadPassengers(number: Int)
+    fun unloadAllPassengers()
 }
 
 class PassengerCar : Car(maxPassengers = MAX_PASSENGERS_FOR_PASSENGER_CAR), Movable, PassengerMovable {
@@ -28,13 +28,23 @@ class PassengerCar : Car(maxPassengers = MAX_PASSENGERS_FOR_PASSENGER_CAR), Mova
         println("Легковой автомобиль едет по маршруту.")
     }
 
-    override fun loadPassenger() {
-        if (currentPassengers < maxPassengers) {
-            println("В легковой автомобиль добавлен новый пассажир, текущее число пассажиров = ${++currentPassengers}")
-        } else println("В легковой автомобиль нельзя добавить более $maxPassengers пассажиров.")
+    override fun loadPassengers(number: Int) {
+        if (currentPassengers >= maxPassengers) {
+            println("В легковой автомобиль нельзя добавить более $maxPassengers пассажиров.")
+            return
+        } else {
+            currentPassengers += number
+
+            var unloadedPassengers = currentPassengers - maxPassengers
+            if (unloadedPassengers < 0) {
+                unloadedPassengers = 0
+            } else currentPassengers = maxPassengers
+
+            println("В легковой автомобиль добавлено ${number - unloadedPassengers} новых пассажиров, текущее число пассажиров = ${currentPassengers}")
+        }
     }
 
-    override fun unloadPassengers() {
+    override fun unloadAllPassengers() {
         println("Из легкового автомобиля выгружено $currentPassengers пассажиров.")
         currentPassengers = 0
     }
@@ -50,10 +60,21 @@ class CargoCar : Car(maxPassengers = MAX_PASSENGERS_FOR_CARGO_CAR), Movable, Car
         println("Грузовик едет по маршруту.")
     }
 
-    override fun loadCargo() {
-        if (currentCargo < maxCargo) {
-            println("В грузовик добавлена одна тонна груза, общий вес груза = ${++currentCargo}")
-        } else println("В грузовик нельзя добавить более $maxCargo тонн груза.")
+    override fun loadCargo(weight: Int) {
+
+        if (currentCargo >= maxCargo) {
+            println("В грузовик автомобиль нельзя добавить более $maxCargo тонн груза.")
+            return
+        } else {
+            currentCargo += weight
+
+            var unloadedCargo = currentCargo - maxCargo
+            if (unloadedCargo < 0) {
+                unloadedCargo = 0
+            } else currentCargo = maxCargo
+
+            println("В грузовик добавлено ${weight - unloadedCargo} т груза, текущая масса груза = ${currentCargo} т")
+        }
     }
 
     override fun unloadCargo() {
@@ -61,13 +82,23 @@ class CargoCar : Car(maxPassengers = MAX_PASSENGERS_FOR_CARGO_CAR), Movable, Car
         currentCargo = 0
     }
 
-    override fun loadPassenger() {
-        if (currentPassengers < maxPassengers) {
-            println("В грузовик добавлен новый пассажир, текущее число пассажиров = ${++currentPassengers}")
-        } else println("В грузовик нельзя добавить более $maxPassengers пассажиров.")
+    override fun loadPassengers(number: Int) {
+        if (currentPassengers >= maxPassengers) {
+            println("В легковой автомобиль нельзя добавить более $maxPassengers пассажиров.")
+            return
+        } else {
+            currentPassengers += number
+
+            var unloadedPassengers = currentPassengers - maxPassengers
+            if (unloadedPassengers < 0) {
+                unloadedPassengers = 0
+            } else currentPassengers = maxPassengers
+
+            println("В легковой автомобиль добавлено ${number - unloadedPassengers} новых пассажиров, текущее число пассажиров = ${currentPassengers}")
+        }
     }
 
-    override fun unloadPassengers() {
+    override fun unloadAllPassengers() {
         println("Из грузовика выгружено $currentPassengers пассажиров.")
         currentPassengers = 0
     }
@@ -82,33 +113,23 @@ fun main() {
     var numberOfPassengers = 6
     var weightOfCargo = 2
 
-    while (cargoCar.currentCargo < cargoCar.maxCargo) {
-        cargoCar.loadCargo()
-        weightOfCargo--
-    }
+    cargoCar.loadCargo(weightOfCargo)
 
-    while (cargoCar.currentPassengers < cargoCar.maxPassengers) {
-        cargoCar.loadPassenger()
-        numberOfPassengers--
-    }
+    cargoCar.loadPassengers(numberOfPassengers)
+    numberOfPassengers -= cargoCar.maxPassengers
 
-    while (passengerCar1.currentPassengers < passengerCar1.maxPassengers) {
-        passengerCar1.loadPassenger()
-        numberOfPassengers--
-    }
+    passengerCar1.loadPassengers(numberOfPassengers)
+    numberOfPassengers -= passengerCar1.maxPassengers
 
-    while (passengerCar2.currentPassengers < passengerCar2.maxPassengers && numberOfPassengers > 0) {
-        passengerCar2.loadPassenger()
-        numberOfPassengers--
-    }
+    passengerCar2.loadPassengers(numberOfPassengers)
 
     cargoCar.move()
     passengerCar1.move()
     passengerCar2.move()
 
     cargoCar.unloadCargo()
-    cargoCar.unloadPassengers()
+    cargoCar.unloadAllPassengers()
 
-    passengerCar1.unloadPassengers()
-    passengerCar2.unloadPassengers()
+    passengerCar1.unloadAllPassengers()
+    passengerCar2.unloadAllPassengers()
 }
