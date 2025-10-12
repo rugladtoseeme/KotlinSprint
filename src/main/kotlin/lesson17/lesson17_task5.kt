@@ -2,7 +2,7 @@ package org.example.lesson17
 
 class User(username: String, password: String) {
 
-    var username: String = username
+    var userName: String = username
         set(value) {
             field = value
             println("Логин успешно сменен.")
@@ -17,7 +17,7 @@ class User(username: String, password: String) {
 
 fun main() {
     val user = User("user1", "11111")
-    user.username = "user11"
+    user.userName = "user11"
     user.password = "222"
-    println("Пользователь ${user.username}, его пароль: ${user.password}")
+    println("Пользователь ${user.userName}, его пароль: ${user.password}")
 }
