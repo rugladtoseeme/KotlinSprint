@@ -3,10 +3,10 @@ package org.example.lesson17
 class QuizElement(question: String, answer: String = "") {
 
     var question: String = question
-        get() = "вопрос: $field"
+        get() = field
 
     var answer: String = answer
-        get() = "ответ: $field"
+        get() = field
         set(value) {
             field = value.trim()
         }
