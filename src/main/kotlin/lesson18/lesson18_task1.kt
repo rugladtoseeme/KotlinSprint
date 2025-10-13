@@ -31,8 +31,8 @@ class Order(val id: Int) {
         else products.addAll(prods)
     }
 
-    private fun printOrder(product: String?) {
-        println("Заказан товар: ${product.orEmpty()}")
+    private fun printOrder(product: String) {
+        println("Заказан товар: $product")
     }
 
     private fun printOrder(products: MutableList<String>) {
