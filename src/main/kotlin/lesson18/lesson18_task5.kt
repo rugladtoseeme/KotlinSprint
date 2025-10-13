@@ -17,19 +17,19 @@ class Point : Figure() {
 class Screen() {
 
     fun drawFigure(x: Int, y: Int, figure: Figure): String {
-        return "Нарисована фигура: $figure на координатах: ($x, $y)"
+        return "Нарисована фигура: $figure, на координатах: ($x, $y)"
     }
 
     fun drawFigure(x: Float, y: Float, figure: Figure): String {
-        return "Нарисована фигура: $figure на координатах: ($x, $y)"
+        return "Нарисована фигура: $figure, на координатах: ($x, $y)"
     }
 
     fun drawFigure(x: Int, y: Float, figure: Figure): String {
-        return "Нарисована фигура: $figure на координатах: ($x, $y)"
+        return "Нарисована фигура: $figure, на координатах: ($x, $y)"
     }
 
     fun drawFigure(x: Float, y: Int, figure: Figure): String {
-        return "Нарисована фигура: $figure на координатах: ($x, $y)"
+        return "Нарисована фигура: $figure, на координатах: ($x, $y)"
     }
 }
 
