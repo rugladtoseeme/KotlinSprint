@@ -14,7 +14,7 @@ class Order(val id: Int) {
                 products.add(product)
                 product = ""
             }
-        else products!!.add(prod)
+        else products.add(prod)
     }
 
     fun addProducts(prods: List<String>) {
