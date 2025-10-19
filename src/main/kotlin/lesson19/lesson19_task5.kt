@@ -6,11 +6,11 @@ class PersonCards {
     private val people: MutableList<Person> = mutableListOf()
     private var canAdd = true
 
-    fun addPerson(person: Person) {
+    fun addPerson(name: String, sex: Sex) {
         if (!canAdd) println("Добавлять на эту страницу больше нельзя.")
         else {
             if (people.size <= MAX_PEOPLE_IN_LIST) {
-                people.add(person)
+                people.add(Person(people.size + 1, name, sex))
                 if (people.size == 5) {
                     printList()
                     canAdd = false
@@ -24,8 +24,8 @@ class PersonCards {
     }
 }
 
-class Person(val name: String, val sex: Sex) {
-    override fun toString() = "Имя: $name, пол: ${sex.sexStr}"
+class Person(val id: Int, val name: String, val sex: Sex) {
+    override fun toString() = "$id, Имя: $name, пол: ${sex.sexStr}"
 }
 
 enum class Sex(val sexStr: String) {
@@ -40,17 +40,15 @@ fun addPersonToCards(cards: PersonCards) {
     println("Введите пол:")
     val sexStr = readln()
     cards.addPerson(
-        Person(
-            name, when {
-                sexStr.equals("Женский", ignoreCase = true)
-                    -> Sex.FEMALE
+        name, when {
+            sexStr.equals("Женский", ignoreCase = true)
+                -> Sex.FEMALE
 
-                sexStr.equals("Мужской", ignoreCase = true)
-                    -> Sex.MALE
+            sexStr.equals("Мужской", ignoreCase = true)
+                -> Sex.MALE
 
-                else -> Sex.UNKNOWN
-            }
-        )
+            else -> Sex.UNKNOWN
+        }
     )
 }
 
