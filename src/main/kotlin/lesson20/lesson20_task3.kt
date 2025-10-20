@@ -1,6 +1,6 @@
 package org.example.lesson20
 
-class Player(){
+class Player() {
     var hasKey = false
 }
 
