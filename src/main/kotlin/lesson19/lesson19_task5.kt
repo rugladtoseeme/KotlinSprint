@@ -5,12 +5,13 @@ private const val MAX_PEOPLE_IN_LIST = 5
 class PersonCards {
     private val people: MutableList<Person> = mutableListOf()
     private var canAdd = true
+    private var counter = 0
 
     fun addPerson(name: String, sex: Sex) {
         if (!canAdd) println("Добавлять на эту страницу больше нельзя.")
         else {
             if (people.size <= MAX_PEOPLE_IN_LIST) {
-                people.add(Person(people.size + 1, name, sex))
+                people.add(Person(++counter, name, sex))
                 if (people.size == 5) {
                     printList()
                     canAdd = false
