@@ -4,13 +4,14 @@ fun Map<String, Int>.maxCategory() = maxByOrNull { it.value }?.key
 
 fun main() {
 
-    val player = mutableMapOf<String, Int>()
-    player.put("Магия", 3)
-    player.put("Стрельба", 5)
-    player.put("Фехтование", 2)
-    player.put("Алхимия", 6)
-    player.put("Харизма", 8)
-    player.put("Ловкость рук", 8)
+    val player = mapOf<String, Int>(
+        "Магия" to 3,
+        "Ловкость рук" to 8,
+        "Алхимия" to 6,
+        "Харизма" to 8,
+        "Фехтование" to 2,
+        "Стрельба" to 5
+    )
 
     println("Ваш наилучший навык - это ${player.maxCategory()}")
 }
