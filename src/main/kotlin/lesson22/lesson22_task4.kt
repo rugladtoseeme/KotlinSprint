@@ -1,10 +1,16 @@
 package org.example.lesson22
 
-class MainScreenViewModel(var mainScreenState: MainScreenState) {
+class MainScreenViewModel() {
+
+    var mainScreenState: MainScreenState = MainScreenState("отсутствие данных")
 
     fun loadData() {
-        println("data ls loading...")
-        mainScreenState = mainScreenState.copy(isLoading = true)
+        println("Начата загрузка данных...")
+        mainScreenState = mainScreenState.copy(data = "загрузка данных", isLoading = true)
+        println(mainScreenState)
+        mainScreenState = mainScreenState.copy(data = "наличие загруженных данных", isLoading = true)
+        println(mainScreenState)
+        mainScreenState = mainScreenState.copy(isLoading = false)
     }
 
     data class MainScreenState(val data: String, var isLoading: Boolean = false)
@@ -13,13 +19,10 @@ class MainScreenViewModel(var mainScreenState: MainScreenState) {
 }
 
 fun main() {
-    val viewModel = MainScreenViewModel(MainScreenViewModel.MainScreenState("отсутствие данных"))
+    val viewModel = MainScreenViewModel()
     println(viewModel)
+
     viewModel.loadData()
-    println(viewModel)
-    viewModel.mainScreenState = MainScreenViewModel.MainScreenState("загрузка данных")
-    viewModel.loadData()
-    viewModel.mainScreenState = MainScreenViewModel.MainScreenState("наличие загруженных данных")
-    viewModel.loadData()
+
     println(viewModel)
 }
