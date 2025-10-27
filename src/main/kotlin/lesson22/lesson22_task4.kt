@@ -13,7 +13,7 @@ class MainScreenViewModel() {
         mainScreenState = mainScreenState.copy(isLoading = false)
     }
 
-    data class MainScreenState(val data: String, var isLoading: Boolean = false)
+    data class MainScreenState(val data: String, val isLoading: Boolean = false)
 
     override fun toString() = "MainScreenViewModel, state = $mainScreenState"
 }
